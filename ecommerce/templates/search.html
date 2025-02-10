@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% for i in key %}
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="{{i.image.url}}" class="img-fluid" alt="" height="200px" width="200px">
+              <div class="portfolio-info">
+                <h4>{{i.name}}</h4>
+                <p>{{i.price}}</p>
+                <a href="{% static 'assets/img/masonry-portfolio/masonry-portfolio-1.jpg' %}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="{% url 'shop:productdetails' i.id  %}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+
+            </div><!-- End Portfolio Item -->
+          </div>
+{% endfor %}
+{% endblock %}

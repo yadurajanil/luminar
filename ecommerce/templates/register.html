@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% block title %}
+    <title>Register</title>
+{% endblock %}
+
+
+{% block content %}
+<h1 class="text-center">Register</h1>
+<div class="container w-50 mx-auto">
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+<!--    cross site request forgery-->
+  <div class="mb-3">
+    <label class="form-label">user_name</label>
+    <input type="text" class="form-control" name="u" placeholder="Enter the user_name">
+  </div>
+     <div class="mb-3">
+    <label class="form-label">password</label>
+    <input type="password" class="form-control" name="p" placeholder="Enter the password">
+  </div>
+         <div class="mb-3">
+    <label class="form-label"> conform password</label>
+    <input type="password" class="form-control" name="p1" placeholder="Enter the password again">
+  </div>
+     <div class="mb-3">
+    <label class="form-label">first_name</label>
+    <input type="text" class="form-control" name="f" placeholder="Enter the first_name">
+  </div>
+     <div class="mb-3">
+    <label class="form-label">last_name</label>
+    <input type="text" class="form-control" name="l" placeholder="Enter the last_name">
+  </div>
+     <div class="mb-3">
+    <label class="form-label">email</label>
+    <input type="email" class="form-control" name="e" placeholder="Enter the email id.">
+  </div>
+
+  <button type="submit" class="btn btn-primary shadow-primary">Submit</button>
+</form>
+</div>
+
+{% endblock %}
+

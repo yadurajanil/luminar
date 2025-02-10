@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid" style="margin-top:100px">
+    <div class="row">
+        <h3 class="text-center">Shopping Cart</h3>
+      <div class="col-7">
+        <table class="table table table-border border border-dark">
+            <tr class="text-center">
+                <th colspan="6" class="p-3">
+                Cart Item
+                </th>
+            </tr>
+            {% for i in cart %}
+            <tr>
+                <td><img src="{{i.product.image.url}}" height="100px" width="100px"></td>
+                <td class="p-3">ProductName : {{i.product.name}}</td>
+                <td class="p-3">ProductId : {{i.product.id}}</td>
+                <td class="p-3">Quantity : {{i.quantity}}<br>
+                UnitPrice : {{i.product.price}}</td>
+                <td class="p-3"> Subtotal : {{i.subtotal}}</td>
+                {% if i.product.stock > 0 %}
+                <td><a href="{% url 'cart:add_to_cart' i.product.id %}"><i class="fa-solid m-2 fa-circle-plus"></i></a><a href="{% url 'cart:cart_decrement' i.product.id %}"><i class="fa-solid m-2 fa-circle-minus"></i></a><a href="{% url 'cart:cart_delete' i.product.id %}"><i class="fa-solid m-2 fa-trash"></i></a></td>
+                {% else %}
+                <td><a href="{% url 'cart:cart_decrement' i.product.id %}"><i class="fa-solid m-2 fa-circle-minus"></i></a><a href="{% url 'cart:cart_delete' i.product.id %}"><i class="fa-solid m-2 fa-trash"></i></a></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+      <div class="col-4">
+        <table class="table table table-border border border-dark">
+            <tr class="text-center"><th colspan="4">chuck out</th></tr>
+                <tr><td class="text-center">total={{total}}</td></tr>
+        </table>
+          <div class="d-flex justify-center-between">
+              <a class="btn btn-dark p-2 " href="{% url 'cart:orderform' %}">place order</a>
+              <a class="btn btn-dark p-2" href="">continue shopping</a>
+          </div>
+    </div>
+</div>
+</div>
+{% endblock %}
