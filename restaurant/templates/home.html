@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+  {% for i in menu %}
+  <div class="container border border-3 border-danger w-25 p-3 mt-5">
+    <h5 class="card-title">{{i.name}}</h5>
+    <p class="card-text">{{i.description}}</p>
+    <a href="{% url 'items_detail' i.id %}" class="btn btn-primary">Select Items</a>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+

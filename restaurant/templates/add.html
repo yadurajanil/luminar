@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h2>Add MenuItem</h2>
+
+<form action="add_menu.php" method="post">
+    <label for="name">Item Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="price">Price (INR):</label>
+    <input type="number" id="price" name="price" step="0.01" required><br><br>
+
+    <label for="menu">Menu Catego:</label>
+    <select id="menu" name="menu" required>
+        <option value="SOUPS">SOUPS</option>
+        <option value="MAIN COURSE">MAIN COURSE</option>
+        <option value="DESSERTS">DESSERTS</option>
+    </select><br><br>
+
+    <label for="is_vegetarian">Vegetarian:</label>
+    <input type="checkbox" id="is_vegetarian" name="is_vegetarian" value="yes"><br><br>
+
+    <button type="submit">Add Menu Item</button>
+</form>
+
+
+{% endblock %}
