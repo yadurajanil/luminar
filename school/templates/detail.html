@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container border border-3 border-danger w-25 p-5 mt-5 bg-secondary text-light">
+<h2 class="text-center mb-4">School Details</h2>
+
+    <h4>School Name: {{school.name}}</h4>
+    <h4>Principal :  {{school.principal}}</h4>
+    <h4>Location:   {{school.location}}</h4>
+  {% for i in school.students.all %}
+  <h4>Student Name : {{i.name}}</h4>
+  <h4>Student Age : {{i.age}}</h4>
+  {% endfor %}
+</div>
+  {% endblock %}

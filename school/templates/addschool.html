@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container border border-3 border-danger w-25 p-5 mt-5 bg-secondary text-light">
+<h2>Add School Details</h2>
+<form method="POST">
+  {% csrf_token %}
+  <table>
+{{form.as_table}}
+
+    </table>
+  <button type="submit" class="btn btn-success mt-3">Submit</button>
+  </form>
+  </div>
+{% endblock %}
