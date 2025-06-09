@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="text-center text-danger">Add Employee Details</h2>
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="container-fluid w-50 mx-auto">
+  <div class="mb-3">
+    <label class="form-label">Employee ID:</label>
+    <input type="number" class="form-control" name="id" value="{{key.empid}}">
+  </div>
+  <div class="mb-3">
+  <label class="form-label">Employee Name:</label>
+   <input type="text" class="form-control" name="n" value="{{key.name}}">
+  </div>
+    <div class="mb-3">
+  <label class="form-label">Employee age:</label>
+   <input type="number" class="form-control" name="a" value="{{key.age}}">
+  </div>
+  <div class="mb-3">
+   <label class="form-label">Employee Salary:</label>
+   <input type="number" class="form-control" name="s" value="{{key.salary}}">
+</div>
+      <div class="mb-3">
+   <label class="form-label">Employee Location:</label>
+   <input type="text" class="form-control" name="l"  value="{{key.location}}">
+</div>
+
+  <div class="mb-3">
+   <label class="form-label">Employee Designation:</label>
+   <input type="text" class="form-control" name="d"  value="{{key.designation}}">
+</div>
+   <div class="mb-3">
+   <label class="form-label">Employee Image:</label>
+       <img src="{{key.image.url}}" width="100px" height="100px">
+   <input type="file" class="form-control" name="img">
+</div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+{% endblock %}
