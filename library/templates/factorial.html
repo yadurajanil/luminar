@@ -1,0 +1,30 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->
+{% extends 'base.html' %}
+{% block content %}
+<div class="container w-50 bg-light mx-auto mt-5 ">
+<h2>Factorial of a Number</h2>
+<form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+  <label class="form-label">Number</label>
+  <input type="number" class="form-control" name="n" placeholder="Enter the number">
+            </div>
+  <div class="mb-3 ">
+  <input type="submit" class="form-control btn btn-primary" >
+            </div>
+</form>
+    {% if fact %}
+Factorial is :{{fact}}
+{% endif %}
+  </div>
+
+{% endblock %}

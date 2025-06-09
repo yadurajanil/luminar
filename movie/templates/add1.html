@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<div class="m-3">
+    <h2 class="text-center">Add Movie Details</h2>
+</div>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+      {{form}}
+      <button type="submit" class="btn btn-dark" >submit</button>
+    </form>
+{% endblock %}

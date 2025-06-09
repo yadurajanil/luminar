@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Book Detail</title>
+{% endblock %}
+
+{% block content %}
+<div class="container bg-light mt-5 w-25">
+<h2 class="text-center">BOOK DETAILS</h2>
+    <table class="table table-bordered table-danger">
+        <tr>
+            <th>Cover</th>
+            <td><img src="{{book.image.url}}" class="height:200px;width:200px;"></td>
+        </tr>
+        <tr>
+            <th>Title</th>
+            <td>{{book.title}}</td>
+        </tr>
+        <tr>
+            <th>Author</th>
+            <td>{{book.author}}</td>
+        </tr>
+        <tr>
+            <th>Price</th>
+            <td>{{book.title}}</td>
+        </tr>
+        <tr>
+            <th>Pages</th>
+            <td>{{book.pages}}</td>
+        </tr>
+        <tr>
+            <th>Language</th>
+            <td>{{book.language}}</td>
+        </tr>
+        <tr>
+            <th>Document</th>
+            <td><a href="{{book.pdf.url}}" class="btn btn-danger">Download</a></td>
+        </tr>
+    </table>
+    </div>
+{% endblock %}

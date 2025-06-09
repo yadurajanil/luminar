@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     {% block title %}
+    <title>View</title>
+  {% endblock %}
+</head>
+<body>
+{% block content %}
+<div class="container w-75 bg-light mx-auto p-3 my-5">
+<h1 class="text-center">VIEW BOOKS</h1>
+<table class="table table-bordered table-primary">
+    <tr>
+        <th>Cover</th>
+        <th>Title</th>
+    <th>Author</th>
+    <th>Price</th>
+    <th>Pages</th>
+    <th>Lanaguage</th>
+        <th>Documents</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    {% for i in book %}
+    <tr>
+        <td><img src="{{i.image.url}}" style="width:100px;height:100px;"></td>
+        <td>{{i.title}}</td>
+        <td>{{i.author}}</td>
+        <td>{{i.price}}</td>
+        <td>{{i.pages}}</td>
+        <td>{{i.language}}</td>
+        <td><a href="{{i.pdf.url}}">Download</a></td>
+        <td><a href="{% url 'books:detailview' i.id %}" class="btn btn-danger">View</a></td>
+        <td><a href="{% url 'books:edit' i.id %}" class="btn btn-danger">Edit</a></td>
+        <td><a href="{% url 'books:deletebook' i.id %}" class="btn btn-danger">Delete</a></td>
+    </tr>
+
+
+    {% endfor %}
+</table>
+<!--    </div>-->
+<!--   <div class="container bg-light mx-auto w-50 ">-->
+<!--       <h2 class="text-center"><u>Book Details</u></h2>-->
+
+<!--       <ol>-->
+<!--           {% for i in book %}-->
+<!--           <li>Book Details</li>-->
+<!--           <ul>-->
+<!--               <img src="{{i.image.url}}" style="width:100px;height:100px;">-->
+<!--               <li>Title-{{i.title}}</li>-->
+<!--               <li>Author-{{i.author}}</li>-->
+<!--               <li>Price-{{i.price}}</li>-->
+<!--               <li>Pages-{{i.pages}}</li>-->
+<!--               <li>language-{{i.language}}</li>-->
+<!--               <li><a href="{{i.pdf.url}}">Download</a></li>-->
+
+<!--&lt;!&ndash;           </ul>&ndash;&gt;-->
+<!--           {% endfor %}-->
+<!--       </ol>-->
+
+<!--   </div>-->
+{% endblock %}
+</body>
+</html>

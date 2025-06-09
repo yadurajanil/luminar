@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<div class="m-3">
+    <h2 class="text-center">Add Movie Details</h2>
+</div>
+<div class="container text-danger">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input  class="form-control" name="t" type="text">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea class="form-control" name="d" rows="3"></textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">language</label>
+            <input class="form-control" name="l" type="text">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Year</label>
+            <input  class="form-control" name="y" type="number">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Image</label>
+            <input  class="form-control" name="i" type="file">
+        </div>
+        <button class="btn btn-dark" type="submit">
+            Submit
+        </button>
+    </form>
+</div>
+
+{% endblock %}

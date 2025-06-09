@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+
+{% block a %}
+<a class="btn btn-primary" href="add">Add Movie</a>
+{% endblock %}
+
+{% block content %}
+<div class="m-3">
+    <h2 class="text-center ">Movie List</h2>
+</div>
+
+<div class="container">
+    {% for i in movie %}
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card m-5" style="width: 18rem;">
+                <img class="card-img-top" height="400px"  src="{{i.image.url}}" >
+                <div class="card-body">
+                    <h5 class="card-title">{{i.title}}</h5>
+                    <p class="card-text">{{i.year}}</p>
+                    <a class="btn btn-primary" href="{% url 'details'%}">Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

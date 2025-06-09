@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     {% block title %}
+    <title>Home</title>
+  {% endblock %}
+
+</head>
+<body>
+{% block content %}
+<h1 class="text-center text-danger">Welcome to home page</h1>
+{% if user.is_authenticated %}
+<h1 class="text-center text-danger mt-5">Welcome to Home Page {{user.username}}</h1>
+{% endif %}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<div class="m-3">
+    <h2 class="text-center">Add Movie Details</h2>
+</div>
+    <form method="POST">
+        {% csrf_token %}
+do you want to delete the file..????
+
+      <button type="submit" class="btn btn-dark" >yes</button>
+    </form>
+{% endblock %}
